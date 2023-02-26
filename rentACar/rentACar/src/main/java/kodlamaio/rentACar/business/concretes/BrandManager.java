@@ -9,12 +9,12 @@ import kodlamaio.rentACar.business.abstracts.BrandService;
 import kodlamaio.rentACar.dataAccess.abstracts.BrandRepository;
 import kodlamaio.rentACar.entities.concretes.Brand;
 
-@Service //IoC yapısında newle. bu sınıf bir buiness nesnesidir.
+@Service 
 public class BrandManager implements BrandService{
 	
 	private BrandRepository brandRepository;
 
-	@Autowired //kim brandrepository implement ediyorsa onu ver
+	@Autowired 
 	public BrandManager(BrandRepository brandRepository) {
 		super();
 		this.brandRepository = brandRepository;
@@ -23,9 +23,7 @@ public class BrandManager implements BrandService{
 
 	@Override
 	public List<Brand> getAll() {
-		// iş kuralları
-		
-		return brandRepository.getAll();
+		return brandRepository.findAll();
 	}
 
 }
